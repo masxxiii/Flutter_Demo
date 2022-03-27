@@ -40,6 +40,38 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text(widget.title)),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Container(
+              child: const Text(
+                'Масуд Зафар',
+                style: TextStyle(fontFamily: 'RobotoMono', fontSize: 30),
+              ),
+              color: columnA,
+              padding: const EdgeInsets.all(30),
+            ),
+            Container(
+              child: const Text(
+                '23 января',
+                style: TextStyle(fontFamily: 'RobotoMono', fontSize: 30),
+              ),
+              color: columnB,
+              padding: const EdgeInsets.all(30),
+            ),
+            Container(
+              child: const Text(
+                '429-2',
+                style: TextStyle(fontFamily: 'RobotoMono', fontSize: 30),
+              ),
+              color: columnC,
+              padding: const EdgeInsets.all(30),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

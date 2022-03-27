@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               child: const Text(
-                'Масуд Зафар',
+                'Имя: Масуд Зафар',
                 style: TextStyle(fontFamily: 'RobotoMono', fontSize: 30),
               ),
               color: columnA,
@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               child: const Text(
-                '23 января',
+                'Дата: 23 января',
                 style: TextStyle(fontFamily: 'RobotoMono', fontSize: 30),
               ),
               color: columnB,
@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               child: const Text(
-                '429-2',
+                'Группа: 429-2',
                 style: TextStyle(fontFamily: 'RobotoMono', fontSize: 30),
               ),
               color: columnC,

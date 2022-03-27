@@ -47,6 +47,9 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
+              padding: const EdgeInsets.symmetric(vertical: 30),
+            ),
+            Container(
               child: const Text(
                 'Масуд Зафар',
                 style: TextStyle(fontFamily: 'RobotoMono', fontSize: 30),

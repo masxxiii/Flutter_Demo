@@ -14,4 +14,4 @@ Find more demo apps:
 ## Note
 
 Feel free to download the project and build upon it. You can add
-new features, refactor the code if you'd like. Happy coding!
+new features and refactor the code if you'd like. Happy coding!

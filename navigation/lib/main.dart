@@ -63,8 +63,8 @@ class _MainViewState extends State<MainView> {
       child: Form(
         key: _formKey,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget> [
-
             // ---------------Input Fields---------------
             TextFormField(keyboardType: TextInputType.number,
                 decoration: InputDecoration(
@@ -78,8 +78,10 @@ class _MainViewState extends State<MainView> {
                 ),
                 controller: textControllerA,
                 validator: (value) {
-              if (value!.isEmpty) {
-              }
+                  if (value == null || value.isEmpty) {
+                    return 'Enter some value';
+                  }
+                  return null;
             }),
             TextFormField(keyboardType: TextInputType.number,
                 decoration: InputDecoration(
@@ -93,8 +95,10 @@ class _MainViewState extends State<MainView> {
                 ),
                 controller: textControllerB,
                 validator: (value) {
-                  if (value!.isEmpty) {
+                  if (value == null || value.isEmpty) {
+                    return 'Enter some value';
                   }
+                  return null;
                 }),
 
             // ---------------Check Box---------------
@@ -106,17 +110,22 @@ class _MainViewState extends State<MainView> {
                 })),
 
             // ---------------Button---------------
-            ElevatedButton(
-                onPressed: () {
-                  if (agreement) {
+            FloatingActionButton(
+              backgroundColor: const Color(0xFFFF8C32),
+              foregroundColor: const Color(0xFFDDDDDD),
+              onPressed: () {
+                if (agreement) {
+                  if (_formKey.currentState!.validate()) {
                     setState(() {
                       numA = int.parse(textControllerA.text);
                       numB = int.parse(textControllerB.text);
                     });
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondView()));
                   }
-                },
-                child: const Text('Calculate'))
+                }
+              },
+              child: const Icon(Icons.calculate),
+            )
           ],
         ),
       ),
@@ -133,7 +142,10 @@ class SecondView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Text('The answer is: $result'),
+        child: Text(
+          'The answer is: $result',
+          style: const TextStyle(fontFamily: 'RobotoMono', fontSize: 30),
+        ),
       ),
     );
   }

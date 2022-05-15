@@ -5,7 +5,7 @@ import 'main_screen_state.dart';
 class MainScreenCubit extends Cubit<MainScreenState> {
   MainScreenCubit() : super(MainScreenInitSumSquareCalculationState());
 
-  void incomeCalculation(a,b) {
+  void squareCalculation(a,b) {
     num value = 0.0;
     value = (pow(a,2)) + (pow(b,2)) + 2 * a * b;
 

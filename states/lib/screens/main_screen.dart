@@ -12,7 +12,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Flutter Navigation'),
+          title: const Text('Flutter States'),
           backgroundColor: Colors.deepPurple.shade200,
         ),
         body: BlocBuilder<MainScreenCubit, MainScreenState> (
@@ -26,7 +26,7 @@ class MainScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const Padding(padding: EdgeInsets.only(top: 50)),
-                    const Text('Результат вычисления',
+                    const Text('Calculated result',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -34,7 +34,7 @@ class MainScreen extends StatelessWidget {
                     ),
                     const Padding(padding: EdgeInsets.symmetric(horizontal: 200)),
                     const Padding(padding: EdgeInsets.only(top: 20)),
-                    Text('$state.value',
+                    Text(state.value.toString(),
                       style: const TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold
@@ -45,7 +45,7 @@ class MainScreen extends StatelessWidget {
                       style: ElevatedButton.styleFrom(primary: Colors.deepPurple.shade200),
                       onPressed: (){
                         BlocProvider.of<MainScreenCubit>(context).initState();
-                      }, child: const Text("Ввести слогаемые снова"),)
+                      }, child: const Text("Enter the values again"),)
                   ],
                 );
               }

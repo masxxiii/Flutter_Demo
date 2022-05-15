@@ -29,7 +29,7 @@ class MainBodyState extends State<MainBody> {
             TextFormField(
               decoration: InputDecoration(
                   border: const OutlineInputBorder(),
-                  labelText: 'Введите значение для a',
+                  labelText: 'Enter a value for a',
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
                     borderSide: const BorderSide(
@@ -49,7 +49,7 @@ class MainBodyState extends State<MainBody> {
               controller: _fieldA,
               validator: (value) {
                 if((value!.isEmpty) || (double.tryParse(value) == null)) {
-                  return 'Пожалуйста, введите числовое значение';
+                  return 'Please enter a numeric value';
                 } else {
                   a = double.parse(value);
                 }
@@ -60,7 +60,7 @@ class MainBodyState extends State<MainBody> {
             TextFormField(
               decoration: InputDecoration(
                   border: const OutlineInputBorder(),
-                  labelText: 'Введите значение для b',
+                  labelText: 'Enter a value for b',
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
                     borderSide: const BorderSide(
@@ -80,7 +80,7 @@ class MainBodyState extends State<MainBody> {
               controller: _fieldB,
               validator: (value) {
                 if((value!.isEmpty) || (double.tryParse(value) == null)) {
-                  return 'Пожалуйста, введите числовое значение';
+                  return 'Please enter a numeric value';
                 } else {
                   b = double.parse(value);
                 }
@@ -90,7 +90,7 @@ class MainBodyState extends State<MainBody> {
             const Padding(padding: EdgeInsets.only(top: 10)),
             CheckboxListTile(
               value: _agreement,
-              title: const Text('Подтверждаю, что ознакомлен(а) с положениями Федерального закона от 27.07.2006 №152-ФЗ «О персональных данных» и даю согласие на обработку моих персональных данных'
+              title: const Text('I confirm that I am familiar with the provisions of the Federal Law of July 27, 2006 No. 152-FZ "On Personal Data" and I agree to the processing of my personal data'
               ),
               onChanged: (bool? value) => setState(() => _agreement = value!),
             ),
@@ -103,7 +103,7 @@ class MainBodyState extends State<MainBody> {
                     BlocProvider.of<MainScreenCubit>(context).squareCalculation(a, b);
                   }
                 }: null,
-                child: const Text('Вычислить')
+                child: const Text('Calculate')
             )
           ],
         ),

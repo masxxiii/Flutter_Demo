@@ -7,11 +7,6 @@ const columnA = Color(0xFFFF8C32);
 const columnB = Color(0xFFDDDDDD);
 const columnC = Color(0xFFEEEEEE);
 
-// Numbers
-num numA = 0;
-num numB = 0;
-num result = 0;
-
 void main() {
   runApp(const MyApp());
 }
@@ -116,11 +111,9 @@ class _MainViewState extends State<MainView> {
               onPressed: () {
                 if (agreement) {
                   if (_formKey.currentState!.validate()) {
-                    setState(() {
-                      numA = int.parse(textControllerA.text);
-                      numB = int.parse(textControllerB.text);
-                    });
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondView()));
+                    num numA = int.parse(textControllerA.text);
+                    num numB = int.parse(textControllerB.text);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => SecondView(numA: numA, numB: numB)));
                   }
                 }
               },
@@ -134,11 +127,14 @@ class _MainViewState extends State<MainView> {
 }
 
 class SecondView extends StatelessWidget {
-  const SecondView({Key? key}) : super(key: key);
+  const SecondView({Key? key, required this.numA, required this.numB}) : super(key: key);
+
+  final num numA;
+  final num numB;
 
   @override
   Widget build(BuildContext context) {
-    result = (pow(numA,2)) + (pow(numB,2)) + 2 * numA * numB;
+    num result = (pow(numA,2)) + (pow(numB,2)) + 2 * numA * numB;
     return Scaffold(
       appBar: AppBar(),
       body: Center(

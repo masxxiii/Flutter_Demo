@@ -104,7 +104,7 @@ class MainBodyState extends State<MainBody> {
                   }
                 }: null,
                 child: const Text('Calculate')
-            )
+            ),
           ],
         ),
       ),

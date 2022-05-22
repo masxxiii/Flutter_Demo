@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cubit/main_screen_cubit.dart';
 import 'cubit/main_screen_state.dart';
 import 'main_body.dart';
+import 'main_screen_provider.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -13,6 +14,14 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Flutter Shared Preferences'),
+          actions: <Widget>[IconButton(
+            icon: const Icon(Icons.storage_rounded),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(
+                      builder:(context) => PreferenceView()));
+            },
+          )],
           backgroundColor: Colors.deepPurple.shade200,
         ),
         body: BlocBuilder<MainScreenCubit, MainScreenState> (
@@ -51,6 +60,45 @@ class MainScreen extends StatelessWidget {
               }
               return Container();
             }
+        )
+    );
+  }
+}
+
+class PreferenceView extends StatelessWidget {
+  const PreferenceView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text("Shared Preferences"),
+        ),
+        body: Container(
+            padding: const EdgeInsets.all(10),
+            child: ListView(
+              children: [
+                Text('A: ${MainScreenProvider.prefs.getDouble('a')}',
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text('B: ${MainScreenProvider.prefs.getDouble('b')}',
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text('Result: ${MainScreenProvider.prefs.getDouble('result')}',
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            )
+
         )
     );
   }

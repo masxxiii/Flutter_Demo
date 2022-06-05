@@ -19,7 +19,7 @@ class MainScreen extends StatelessWidget {
             onPressed: () {
               Navigator.push(context,
                   MaterialPageRoute(
-                      builder:(context) => PreferenceView()));
+                      builder:(context) => const PreferenceView()));
             },
           )],
           backgroundColor: Colors.deepPurple.shade200,
@@ -75,30 +75,14 @@ class PreferenceView extends StatelessWidget {
           title: const Text("Shared Preferences"),
         ),
         body: Container(
-            padding: const EdgeInsets.all(10),
-            child: ListView(
-              children: [
-                Text('A: ${MainScreenProvider.prefs.getDouble('a')}',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text('B: ${MainScreenProvider.prefs.getDouble('b')}',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text('Result: ${MainScreenProvider.prefs.getDouble('result')}',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
+            padding: const EdgeInsets.all(50),
+            child: ListView.builder(
+              itemCount: MainScreenProvider.prefs.getStringList('calc')!.length,
+              itemBuilder: (context, index) {
+                return Text(MainScreenProvider.prefs.getStringList('calc')!.elementAt(index),
+                    style: const TextStyle(fontWeight: FontWeight.bold));
+              },
             )
-
         )
     );
   }

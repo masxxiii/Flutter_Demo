@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-// Colors
+// Custom colors
 const appBarColor = Color(0xFF06113C);
 const columnA = Color(0xFFFF8C32);
 const columnB = Color(0xFFDDDDDD);

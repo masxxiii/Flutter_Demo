@@ -13,7 +13,9 @@ class MainBodyState extends State<MainBody> {
   final _formKey = GlobalKey<FormState>();
   final _fieldA = TextEditingController();
   final _fieldB = TextEditingController();
+
   bool _agreement = false;
+
   late double a;
   late double b;
 

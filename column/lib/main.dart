@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// Colors
 const appBarColor = Color(0xFFFD5D5D);
 const columnA = Color(0xFFC0EDA6);
 const columnB = Color(0xFFFFF7BC);

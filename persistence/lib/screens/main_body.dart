@@ -10,6 +10,7 @@ class MainBody extends StatefulWidget {
 }
 
 class MainBodyState extends State<MainBody> {
+
   final _formKey = GlobalKey<FormState>();
   final _fieldA = TextEditingController();
   final _fieldB = TextEditingController();

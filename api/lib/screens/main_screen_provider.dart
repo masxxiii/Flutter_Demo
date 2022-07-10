@@ -4,6 +4,7 @@ import 'package:api/screens/cubit/main_screen_cubit.dart';
 import 'package:api/screens/main_screen.dart';
 
 class MainScreenProvider extends StatelessWidget {
+
   const MainScreenProvider({Key? key}) : super(key: key);
 
   @override
